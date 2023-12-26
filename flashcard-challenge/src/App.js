@@ -45,7 +45,11 @@ const questions = [
 
 function FlashCard({ question, answer, isClicked, id, onClicked }) {
   function handleCardClick() {
-    onClicked(id);
+    if (isClicked) {
+      onClicked(-1);
+    } else {
+      onClicked(id);
+    }
   }
 
   return (
