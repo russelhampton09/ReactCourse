@@ -76,6 +76,7 @@ function FlashCards({ questions }) {
             isClicked={clickedId === question.id}
             onClicked={setClickedId}
             id={question.id}
+            key={question.id}
           ></FlashCard>
         );
       })}
