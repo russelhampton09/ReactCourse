@@ -11,14 +11,20 @@ function App() {
   const [friendChoice, setFriendChoice] = useState(0);
   const [yourChoice, setYourChoice] = useState(0);
   const [total, setTotal] = useState(0);
-  console.log(total);
+
+  function handleClick() {
+    setFriendChoice(0);
+    setTotal(0);
+    setYourChoice(0);
+  }
+
   return (
     <div className="App">
-      <BillInput onSelect={setTotal}></BillInput>
-      <SurveyDropDown onSelect={setYourChoice}>
+      <BillInput total={total} onSelect={setTotal}></BillInput>
+      <SurveyDropDown val={yourChoice} onSelect={setYourChoice}>
         How did you like the service?
       </SurveyDropDown>
-      <SurveyDropDown onSelect={setFriendChoice}>
+      <SurveyDropDown val={friendChoice} onSelect={setFriendChoice}>
         How did your friend like the service?
       </SurveyDropDown>
       <TotalDisplay
@@ -26,7 +32,7 @@ function App() {
         tip1={tipOptions[yourChoice]}
         tip2={tipOptions[friendChoice]}
       ></TotalDisplay>
-      <ResetButton> Reset </ResetButton>
+      <ResetButton onClick={handleClick}> Reset </ResetButton>
     </div>
   );
 }
