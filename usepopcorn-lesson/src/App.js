@@ -1,4 +1,5 @@
 import { useState } from "react";
+import StarRating from "./StarRating";
 
 const tempMovieData = [
   {
@@ -92,28 +93,6 @@ function Box({ children }) {
     </div>
   );
 }
-
-// function WatchedBox() {
-//   const [isOpen2, setIsOpen2] = useState(true);
-//   const [watched, setWatched] = useState(tempWatchedData);
-
-//   return (
-//     <div className="box">
-//       <button
-//         className="btn-toggle"
-//         onClick={() => setIsOpen2((open) => !open)}
-//       >
-//         {isOpen2 ? "–" : "+"}
-//       </button>
-//       {isOpen2 && (
-//         <>
-//           <WatchSummary watched={watched}></WatchSummary>
-//           <WatchedMovieList watched={watched}></WatchedMovieList>
-//         </>
-//       )}
-//     </div>
-//   );
-//}
 
 function WatchedMovie({ movie }) {
   return (
@@ -226,6 +205,7 @@ export default function App() {
 
   return (
     <>
+    <StarRating maxRating={5}></StarRating>
       <NavBar>
         <SearchBar></SearchBar>
         <NumResults movies={movies}></NumResults>
